@@ -8,6 +8,7 @@ export default function App() {
     <>
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.safeArea}>
+        <View style={styles.background} />
         <Text style={styles.titleApp}>Cotizador de Prestamos</Text>
         <Form />
       </SafeAreaView>
@@ -25,10 +26,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   safeArea: {
-    backgroundColor: colors.PRIMARY_COLOR,
-    height: 200,
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
+    height: 290,
     alignItems: "center",
   },
   titleApp: {
@@ -36,5 +34,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#fff",
     marginTop: 15,
+  },
+  background: {
+    backgroundColor: colors.PRIMARY_COLOR,
+    height: 200,
+    width: "100%",
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+    position: "absolute",
+    zIndex: -1,
   },
 });
