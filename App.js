@@ -8,14 +8,31 @@ import {
   Button,
 } from "react-native";
 import Form from "./src/components/Form";
+import Footer from "./src/components/Footer";
 import colors from "./src/utils/colors";
 
 export default function App() {
   const [capital, setCapital] = useState(null);
   const [interest, setInterest] = useState(null);
   const [months, setMonths] = useState(null);
+  const [total, setTotal] = useState(null);
 
-  const onSubmit = () => {};
+  const calculate = () => {
+    if (!capital) {
+      console.log("Añade la cantidad que quieres solicitar");
+    } else if (!interest) {
+      console.log("Añade el interés del préstamo");
+    } else if (!months) {
+      console.log("Selecciona los meses a pagar");
+    } else {
+      const i = interest / 100;
+      const fee = capital / ((1 - Math.pow(i + 1, -months)) / i);
+      setTotal({
+        monthlyFee: fee.toFixed(2).replace(".", ","),
+        totalPayable: (fee * months).toFixed(2).replace(".", ","),
+      });
+    }
+  };
 
   return (
     <>
@@ -34,10 +51,7 @@ export default function App() {
         <Text>Resultado</Text>
       </View>
 
-      <View>
-        <Button title="Enviar" onPress={onSubmit} />
-        <Text>Footer</Text>
-      </View>
+      <Footer calculate={calculate} />
     </>
   );
 }
