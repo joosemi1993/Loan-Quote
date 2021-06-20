@@ -16,17 +16,17 @@ export default function Form(props) {
           onChange={(e) => setCapital(e.nativeEvent.text)}
         />
         <TextInput
-          placeholder="Interés %"
+          placeholder="Interes %"
           keyboardType="numeric"
           style={[styles.input, styles.inputPercentage]}
           onChange={(e) => setInterest(e.nativeEvent.text)}
         />
       </View>
       <RNPickerSelect
-        style={pickerSelectStyles}
-        onValueChange={(e) => setMonths(e.nativeEvent.text)}
+        style={picketSelectStyles}
+        onValueChange={(value) => setMonths(value)}
         placeholder={{
-          label: "Selecciona los plazos...",
+          label: "Seleccióna los plazos...",
           value: null,
         }}
         items={[
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const pickerSelectStyles = StyleSheet.create({
+const picketSelectStyles = StyleSheet.create({
   inputIOS: {
     fontSize: 16,
     paddingVertical: 12,
@@ -87,14 +87,14 @@ const pickerSelectStyles = StyleSheet.create({
     marginLeft: -5,
     marginRight: -5,
   },
-  inputAndoid: {
+  inputAndroid: {
     fontSize: 16,
     paddingHorizontal: 10,
     paddingVertical: 8,
     borderWidth: 0.5,
     borderColor: "grey",
     borderRadius: 8,
-    color: "#000",
+    color: "black",
     paddingRight: 30,
     backgroundColor: "#fff",
   },
